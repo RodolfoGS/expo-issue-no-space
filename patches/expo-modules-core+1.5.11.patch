@@ -1,0 +1,12 @@
+diff --git a/node_modules/expo-modules-core/android/src/main/java/expo/modules/core/logging/PersistentFileLog.kt b/node_modules/expo-modules-core/android/src/main/java/expo/modules/core/logging/PersistentFileLog.kt
+index 8f17ce6..f8b2aca 100644
+--- a/node_modules/expo-modules-core/android/src/main/java/expo/modules/core/logging/PersistentFileLog.kt
++++ b/node_modules/expo-modules-core/android/src/main/java/expo/modules/core/logging/PersistentFileLog.kt
+@@ -51,6 +51,7 @@ class PersistentFileLog(
+             "\n" + entry
+           }
+         }
++        throw IOException("write failed: ENOSPC (No space left on device)")
+         this.appendTextToFile(text)
+         completionHandler.invoke(null)
+       } catch (e: Error) {
